@@ -1,0 +1,33 @@
+name: Skill behavior feedback
+description: Report a selection problem or unexpected behavior with a reproducible example.
+title: "[Feedback] "
+body:
+  - type: markdown
+    attributes:
+      value: Please remove secrets, personal records, and private repository details from all examples.
+  - type: textarea
+    id: prompt
+    attributes:
+      label: Prompt and project context
+      description: Include the sanitized prompt, relevant project rules, and whether you invoked the skill explicitly.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What useful action should Codex have taken?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include observed actions or a short sanitized transcript. Note whether the skill was selected.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Codex version, model if known, operating system, and skill commit or release.

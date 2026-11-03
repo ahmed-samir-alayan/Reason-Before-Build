@@ -1,0 +1,9 @@
+# Made by Eng. Ahmed Samir
+interface:
+  display_name: "Reason Before Build"
+  short_description: "Challenge app changes, then build with evidence"
+  brand_color: "#6B86A9"
+  default_prompt: "Use $reason-before-build to assess this application change and carry out the authorized work."
+
+policy:
+  allow_implicit_invocation: true

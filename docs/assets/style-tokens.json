@@ -1,0 +1,30 @@
+{
+  "status": "selected for this repository",
+  "style": "Nocturne",
+  "colors": {
+    "midnight": "#05141F",
+    "deepBlue": "#083451",
+    "ocean": "#225F8B",
+    "slate": "#536B95",
+    "accent": "#6B86A9",
+    "softCloud": "#A2A7B2",
+    "lavender": "#B0A1D4",
+    "ivory": "#F2E8D5",
+    "peach": "#F6D4A5"
+  },
+  "typography": {
+    "title": "custom generated high-contrast editorial serif lettering",
+    "labels": "generated monospaced lettering",
+    "format": "bitmap; not a font family or editable live text"
+  },
+  "cover": {
+    "width": 1774,
+    "height": 887
+  },
+  "socialPreview": {
+    "width": 1280,
+    "height": 640,
+    "format": "JPEG"
+  },
+  "author": "Eng. Ahmed Samir"
+}

@@ -1,0 +1,23 @@
+# Local operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local credentials and private settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.codex/
+
+# Local work, generated archives, and Python caches
+/work/
+/dist/
+*.zip
+__pycache__/
+*.py[cod]
+.venv/
