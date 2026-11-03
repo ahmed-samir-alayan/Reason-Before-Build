@@ -13,6 +13,5 @@ Only these exact additional texts are permitted:
 "By Eng. Ahmed Samir" ONCE, comfortably visible, subtly more prominent than small metadata but far smaller than the title.
 "Many possibilities."
 "One deliberate change."
-"$reason-before-build" as a small useful invocation.
 
-All text must be spelled exactly, easy to read, and clearly separated; no overlapping text, no duplicate name or GitHub handle. Do not write "Codex skill". Use reference palette cohesively across the whole cover rather than tinting the previous layout. Preserve a professional, unique, memorable visual identity that could support future related skill covers.
+All text must be spelled exactly, easy to read, and clearly separated; no overlapping text, no duplicate name or GitHub handle. Do not add a platform name, logo, or product-specific invocation syntax. Use reference palette cohesively across the whole cover rather than tinting the previous layout. Preserve a professional, unique, memorable visual identity that could support future related skill covers.

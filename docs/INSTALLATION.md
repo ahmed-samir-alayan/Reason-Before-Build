@@ -1,75 +1,77 @@
-# Install in Codex
+# Install in an AI coding agent
 
-This repository contains one skill at `skills/reason-before-build`. Install that folder, rather than the entire repository, into a Codex skill location.
+The installable folder is `skills/reason-before-build`. Its `SKILL.md` and supporting files follow the open [Agent Skills format](https://agentskills.io/specification). The format defines a portable skill package; it does not define where every agent stores skills or how each one discovers and invokes them. Use the host's documented installation location and activation method.
 
-Choose the built-in installer or copy the skill folder into a local Codex skill location.
+## Host documentation
 
-## Use the built-in installer
+### Codex
 
-Ask Codex:
+Ask Codex to install the skill from GitHub:
 
 ```text
 $skill-installer install the skill from https://github.com/ahmed-samir-alayan/Reason-Before-Build/tree/main/skills/reason-before-build
 ```
 
-The built-in installer chooses its supported local installation location. If it reports an existing destination, compare the installed copy and the incoming copy before deciding to replace either. Do not install another copy with the same skill name just to bypass the warning.
+Codex's [skill documentation](https://learn.chatgpt.com/docs/build-skills) describes its installer, local locations, and discovery behavior.
 
-## Install a local copy
+### GitHub Copilot CLI
 
-Copy `skills/reason-before-build` into one of the locations documented by Codex:
+Copilot CLI documents project and personal locations, including `.agents/skills`. Follow its current [agent skills guide](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills) to install the skill or copy its folder.
 
-| Scope | Destination |
-| --- | --- |
-| Your user account | `~/.agents/skills/reason-before-build/` |
-| One project | `<project-root>/.agents/skills/reason-before-build/` |
+### Cursor
 
-Both destinations should contain `SKILL.md` directly inside `reason-before-build/`. Preserve the `references`, `agents`, and `assets` directories. Include the repository's `LICENSE` with a redistributed copy.
+Cursor supports the Agent Skills format. Its [skills guide](https://cursor.com/docs/skills) lists the shared `.agents/skills` locations and Cursor-specific `.cursor/skills` locations, and describes discovery and invocation.
 
-For a downloaded or cloned copy, run this from its repository root on macOS, Linux, or another POSIX shell. It stops if the target already exists, including a symbolic link:
+### Manual copy into a supported skills location
+
+These official guides document the following locations:
+
+| Host | Scope | Destination |
+| --- | --- | --- |
+| Codex, Copilot CLI, or Cursor | Your user account | `~/.agents/skills/reason-before-build/` |
+| Codex, Copilot CLI, or Cursor | One project | `<project-root>/.agents/skills/reason-before-build/` |
+| Cursor | Your user account | `~/.cursor/skills/reason-before-build/` |
+| Cursor | One project | `<project-root>/.cursor/skills/reason-before-build/` |
+| GitHub Copilot CLI | Your user account | `~/.copilot/skills/reason-before-build/` |
+| GitHub Copilot CLI | One project | `<project-root>/.github/skills/reason-before-build/` |
+
+Confirm the location with your host's own documentation before using it. The destination should contain `SKILL.md` directly inside `reason-before-build/`. Preserve `references`, `agents`, and `assets`, and include the skill's `LICENSE` when redistributing a copy.
+
+From a downloaded or cloned repository, run this on macOS, Linux, or another POSIX shell. It stops if the destination already exists, including a symbolic link:
 
 ```sh
 (
   set -eu
   test -f ./skills/reason-before-build/SKILL.md
-  skill_parent="${REASON_BEFORE_BUILD_SKILLS_DIR:-$HOME/.agents/skills}"
-  skill_target="$skill_parent/reason-before-build"
+  skills_parent="${AGENT_SKILLS_DIR:-$HOME/.agents/skills}"
+  skill_target="$skills_parent/reason-before-build"
   if [ -e "$skill_target" ] || [ -L "$skill_target" ]; then
     printf '%s\n' 'A destination already exists. Compare it before replacing it.' >&2
     exit 1
   fi
-  mkdir -p "$skill_parent"
+  mkdir -p "$skills_parent"
   mkdir "$skill_target"
   cp -R ./skills/reason-before-build/. "$skill_target/"
 )
 ```
 
-The optional `REASON_BEFORE_BUILD_SKILLS_DIR` variable selects a different parent folder for this copy command. Leave it unset for the user location, or set it to your project's `.agents/skills` folder for project-only setup.
+The optional `AGENT_SKILLS_DIR` variable lets you choose any host-supported or project-only parent folder. On Windows, use your file manager to copy the skill folder into the destination documented by your host.
 
-For project-only installation, copy the same files using your file manager into the project destination above. On Windows, use your file manager and your user profile's `.agents/skills` folder; the shell sample is for POSIX environments.
-
-To obtain the repository, Git users can run:
+To get the repository, clone it or use GitHub's **Code → Download ZIP**:
 
 ```sh
 git clone https://github.com/ahmed-samir-alayan/Reason-Before-Build.git
 cd Reason-Before-Build
 ```
 
-Alternatively, use GitHub's **Code → Download ZIP**, extract it, and open the repository folder.
-
 ## Confirm discovery
 
-Open Codex in your application project and look for **Reason Before Build** in the skill selector. Explicit invocation uses `$reason-before-build`.
+Use your host's skill list, reload, or selector to confirm **Reason Before Build** is available. Invocation syntax and automatic selection vary by host. If it does not appear, check the documented location, exact `SKILL.md` filename, folder nesting, and whether another skill with the same name is installed.
 
-Codex detects skill changes automatically according to the [official documentation](https://learn.chatgpt.com/docs/build-skills). Restart Codex if the skill does not appear. If it remains missing, check the folder nesting, exact `SKILL.md` filename, and any existing skill-disable settings before changing configuration.
-
-Duplicate skill names are not merged. Check existing project and user copies, including older installations under `~/.codex/skills`, before adding another one.
-
-## Optional project guidance
-
-If your team wants to request this workflow for application work, manually add the text from [AGENTS.md.snippet](../skills/reason-before-build/assets/AGENTS.md.snippet) to the project's existing `AGENTS.md`. Preserve the project's other instructions. This is optional; explicit invocation works without it.
+The optional [AGENTS.md snippet](../skills/reason-before-build/assets/AGENTS.md.snippet) can be added to a project's `AGENTS.md` when the host reads that file. Otherwise, use the host's project-instruction mechanism. Preserve existing project instructions; this addition is not required for explicit skill use.
 
 ## Update or remove
 
 For updates, review the [changelog](../CHANGELOG.md) and compare the incoming folder with your installed copy. Preserve local modifications and replace only the copy you intend to update. For repeatable installs, select a reviewed commit or release rather than a moving branch.
 
-To uninstall a manual copy, remove only the installed `reason-before-build` directory you selected. Remove any optional project guidance you added. No global Git or GitHub account changes are needed for installation.
+To uninstall a manual copy, remove only the installed `reason-before-build` directory you selected and any optional project guidance you added. The skill has no package-manager dependency, API key, MCP server, or bundled executable.

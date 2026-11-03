@@ -26,6 +26,6 @@ Do not record routine code changes, temporary mock values, unconfirmed proposals
 
 ## Safety and scope
 
-Write only inside the current repository and only when the repository is writable and the task permits edits. Honor read-only, audit-only, or planning-only requests: report a needed context correction instead of writing it in those modes. Do not modify user-wide Codex configuration, unrelated repositories, or external systems. Follow repository instructions and existing ownership conventions. If no material context changed, leave the context file alone.
+Write only inside the current repository and only when the repository is writable and the task permits edits. Honor read-only, audit-only, or planning-only requests: report a needed context correction instead of writing it in those modes. Do not modify agent-wide settings, unrelated repositories, or external systems. Follow repository instructions and existing ownership conventions. If no material context changed, leave the context file alone.
 
 Keep secrets, credentials, personal records, and sensitive internal content out of shareable context. Automatic context maintenance does not authorize an automatic commit or push. Review the documentation diff for correctness and appropriate disclosure before including it in a user-authorized Git operation.

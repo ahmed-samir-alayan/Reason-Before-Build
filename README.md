@@ -3,13 +3,13 @@
 </p>
 
 <p align="center">
-  <strong>Evidence-led application decisions for Codex.</strong><br>
+  <strong>Evidence-led decisions for AI coding agents.</strong><br>
   Made by <a href="https://github.com/ahmed-samir-alayan">Eng. Ahmed Samir</a>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-6B86A9?style=flat-square&amp;labelColor=05141F&amp;color=6B86A9" alt="License: MIT"></a>
-  <img src="https://img.shields.io/badge/built_for-Codex-6B86A9?style=flat-square&amp;labelColor=05141F&amp;color=6B86A9" alt="Built for Codex">
+  <img src="https://img.shields.io/badge/format-Agent_Skills-6B86A9?style=flat-square&amp;labelColor=05141F&amp;color=6B86A9" alt="Agent Skills format">
   <img src="https://img.shields.io/badge/runtime-instructions_only-6B86A9?style=flat-square&amp;labelColor=05141F&amp;color=6B86A9" alt="Instruction-only skill">
 </p>
 
@@ -19,13 +19,13 @@
 
 ---
 
-A request like “add a dashboard” leaves real decisions open: who uses it, what they need to decide, which data exists, and whether the application already solves the problem. This skill helps Codex resolve those questions before turning them into code.
+A request like “add a dashboard” leaves real decisions open: who uses it, what they need to decide, which data exists, and whether the application already solves the problem. This skill helps a coding agent resolve those questions before turning them into code.
 
 When the direction is clear, it moves straight into the authorized work. Small changes stay small. A review may correctly end with no change.
 
 ## What changes in your workflow
 
-| Situation | Guidance the skill gives Codex |
+| Situation | Guidance the skill gives an agent |
 | --- | --- |
 | A new feature or screen | Establish the user need and inspect the connected workflow before building. |
 | Another card, chart, or tab | Check its purpose and reuse existing capabilities where they fit. |
@@ -38,11 +38,7 @@ These are instructions for an agent, rather than an enforcement mechanism. Resul
 
 ## Install
 
-In Codex, ask the built-in installer:
-
-```text
-$skill-installer install the skill from https://github.com/ahmed-samir-alayan/Reason-Before-Build/tree/main/skills/reason-before-build
-```
+The installable folder follows the open [Agent Skills format](https://agentskills.io/specification), which is supported by products including Codex, GitHub Copilot CLI, and Cursor. The same core files can be used where the format is supported, but installation paths and discovery features vary by host. Start with the [installation guide](docs/INSTALLATION.md) for locations documented by each host.
 
 Already have a skill called `reason-before-build`? Compare it first and choose which copy to keep. The installer or a manual copy should never silently replace your existing version.
 
@@ -50,10 +46,10 @@ See the [installation guide](docs/INSTALLATION.md) for project-only installation
 
 ## Use it
 
-Open your application project in Codex and describe the task:
+Open your application project in a coding agent that supports Agent Skills and describe the task:
 
 ```text
-Use $reason-before-build to assess and implement a saved-search feature.
+Use the Reason Before Build skill to assess and implement a saved-search feature.
 Inspect the existing search flow, reuse the current design system, and
 ask only about decisions that materially affect scope or user behavior.
 ```
@@ -61,12 +57,12 @@ ask only about decisions that materially affect scope or user behavior.
 For analysis without edits:
 
 ```text
-Use $reason-before-build to review this proposed admin dashboard.
+Use the Reason Before Build skill to review this proposed admin dashboard.
 Explain what should be built, reused, deferred, or left unchanged.
 Do not edit files.
 ```
 
-Automatic selection is enabled. Codex can choose the skill when the request matches its description; an explicit `$reason-before-build` mention makes your intent clear. Standalone translations, simple text edits, and mechanical tasks are outside its usual trigger. Arabic, English, and mixed-language requests are supported by the instructions.
+Automatic selection depends on the host's skill support and its reading of the description. You can also name the skill directly; the invocation syntax varies by host. Standalone translations, simple text edits, and mechanical tasks are outside its usual trigger. Arabic, English, and mixed-language requests are supported by the instructions.
 
 ## Reason in proportion to the decision
 
@@ -84,7 +80,7 @@ The skill preserves the requested delivery stage: review, plan, UI preview, or f
 
 Project context stays inside the repository. Review-only tasks do not write context files. The skill does not grant permission to publish, deploy, push, change accounts, or edit global settings.
 
-The core format follows [Codex skill conventions](https://learn.chatgpt.com/docs/build-skills): `SKILL.md` plus focused supporting files. `agents/openai.yaml` supplies Codex UI metadata. Other agents may understand the core format, but their discovery rules and behavior need separate validation.
+The installable core follows the open Agent Skills format: `SKILL.md` plus focused supporting files. `agents/openai.yaml` is an optional Codex metadata adapter; other hosts can ignore it. Host-specific discovery and invocation differ, and behavior has not been independently evaluated across agents.
 
 ## Inside the repository
 
@@ -92,7 +88,7 @@ The core format follows [Codex skill conventions](https://learn.chatgpt.com/docs
 skills/reason-before-build/
 ├── SKILL.md                        Core instructions and trigger description
 ├── LICENSE                         MIT license included with the skill
-├── agents/openai.yaml              Codex metadata and activation policy
+├── agents/openai.yaml              Optional Codex metadata adapter
 ├── references/
 │   ├── data-consistency.md         Shared measures and coherent demo fixtures
 │   └── project-context.md          Durable repository context rules

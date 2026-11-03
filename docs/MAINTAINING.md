@@ -4,11 +4,11 @@
 
 - Repository: `ahmed-samir-alayan/Reason-Before-Build`.
 - Installable directory: `skills/reason-before-build`.
-- Invocation name: `$reason-before-build`.
+- Skill name: `reason-before-build`; host-specific invocation syntax varies.
 - Author credit: **Eng. Ahmed Samir**.
 - License: MIT.
 - Runtime: instructions and supporting references; no executable helper, required connector, or package dependency.
-- Default activation: implicit selection allowed, with an explicit invocation also available.
+- The Codex adapter allows implicit selection. Other hosts control discovery and activation independently.
 
 The supplied skill is the source of this package. Preserve its proportional reasoning, evidence boundaries, coherent data, existing-system fit, direct execution when clear, informed-choice behavior, and durable repository context.
 
@@ -20,9 +20,9 @@ The cover is a 1774 × 887 PNG with custom generated editorial serif lettering. 
 
 ## Review changes
 
-When Codex's bundled `skill-creator` is available, ask it to validate `skills/reason-before-build` using its bundled validator. Also inspect activation boundaries, read-only behavior, relative links, and metadata assets manually. Do not hardcode the maintainer's private installation paths into public instructions.
+Validate the required format and naming rules using the [Agent Skills specification](https://agentskills.io/specification) and its `skills-ref` validator when available. The optional Codex `skill-creator` validator can check that host's metadata too. Also inspect activation boundaries, read-only behavior, relative links, and metadata assets manually. Do not hardcode the maintainer's private installation paths into public instructions.
 
-Use [behavior checks](../examples/behavior-checks.md) for realistic cases. Record actual results when performed; the scenarios themselves are not proof of model behavior. Test an installation in a disposable project or temporary user location before making a compatibility claim for a new host or installation method.
+Use [behavior checks](../examples/behavior-checks.md) for realistic cases. Record actual results when performed; the scenarios themselves are not proof of model behavior. Test installation, discovery, and behavior in a disposable project for each host before claiming compatibility with that host. Matching the shared file format alone does not establish equivalent activation or behavior.
 
 Run only the checks relevant to the change. This instruction package does not need an application build, API credentials, or production access for structural review.
 
@@ -34,6 +34,6 @@ For Git operations, use repository-local identity and account-specific authentic
 
 ## Upstream guidance
 
-The installation and metadata guidance was checked against [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills) on 2026-11-03. It documents local skill locations, discovery, explicit and implicit invocation, and `agents/openai.yaml`.
+The shared package structure was checked against the [Agent Skills specification](https://agentskills.io/specification) on 2026-11-03. The Codex-specific installer and `agents/openai.yaml` guidance was checked against [OpenAI's skill documentation](https://learn.chatgpt.com/docs/build-skills); Copilot CLI locations were checked against [GitHub's guide](https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-skills); Cursor locations and format support were checked against [Cursor's guide](https://cursor.com/docs/skills).
 
-The documentation also recommends plugins for installable distribution. This repository deliberately provides a standalone skill folder and built-in-installer/manual installation paths as requested. A plugin can be added as a separate packaging decision; this package does not claim a marketplace listing.
+This repository distributes a standalone skill folder. A host may offer additional packaging or marketplace options; this package does not claim a marketplace listing.

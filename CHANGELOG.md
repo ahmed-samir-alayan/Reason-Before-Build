@@ -9,7 +9,8 @@ Record changes that affect skill behavior, installation, or compatibility. A rel
 - Initial GitHub package for Reason Before Build by Eng. Ahmed Samir.
 - Purpose, project discovery, proportional reasoning, evidence, and challenge-before-implementation guidance from the supplied skill.
 - Shared-data consistency reference, repository-context reference, and optional project templates.
-- Codex installation instructions, practical examples, behavior scenarios, contribution guide, and visual assets.
+- Installation instructions, practical examples, behavior scenarios, contribution guide, and visual assets.
+- Agent-neutral core instructions and documentation for the shared Agent Skills format, with Codex, GitHub Copilot CLI, and Cursor installation guidance.
 - The selected Nocturne artwork and a coordinated blue visual direction for the GitHub cover, badges, and social preview.
 - Custom generated editorial serif lettering and a luminous convergence diagram inspired by the supplied profile painting.
 - MIT license.
